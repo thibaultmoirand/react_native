@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar"
 import { useState } from "react"
-import { Button, StyleSheet, Text, TextInput, View } from "react-native"
+import { StyleSheet, Text, TextInput, View, Image } from "react-native"
+import { Button } from 'react-native-paper';
 
 const HomeView = ({navigation}) => {
   
@@ -21,23 +22,42 @@ const HomeView = ({navigation}) => {
             </View>
             <View style={styles.greenFlexItem}>
               <View style={styles.img}>
-
+                
+                <Image style={styles.Image1} src={'./test.png'}></Image>
+                <Image style={styles.Image2} src={''}></Image>
+                
               </View>
               <View style={styles.img}>
+                
+                <Image style={styles.Image2} src={''}></Image>
+                <Image style={styles.Image1} src={''}></Image>
+                
+              </View>
+              <View style={styles.bout}>
                 <Text>{enteredTodo}</Text>
                 <TextInput
                     placeholder='Entrer nouvelle valeur de state'
                     onChangeText={changeTextHandler}
                 />
                 <Button
+                    icon="home" mode="contained"
                     onPress={changeTodoHandler}
-                    title='Create todo' />
+                    >
+                      titre
+                    </Button>
               </View>
             </View>
-            <View style={styles.yellowFlexItem} >
-            <Button
-                    onPress={() => {navigation.navigate('Second')}}
-                    title='Go to second page' />
+            <View style={styles.menu} >
+              <Button
+                    icon="home" mode="contained"
+                    onPress={() => {navigation.navigate('Accueil')}}>
+                      home
+                    </Button>
+                    <Button
+                    icon="home" mode="contained"
+                    onPress={() => {navigation.navigate('Second')}}>
+                      page 2
+              </Button>
             </View>
 
             <StatusBar style="auto" />
@@ -61,19 +81,27 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center'
     },
-    yellowFlexItem: {
-      flex: 15,
+    menu: {
+      flexDirection: "row",
+      flex: 10,
       justifyContent: 'center',
       alignItems: 'center'
     },
+    bout:{
+      flex: 40,
+    } ,
     img: {
-      flex: 50,
+      flexDirection: "row",
+      flex: 40,
+      backgroundColor: 'red',
     },
     Image1: {
       flex: 10,
+      backgroundColor: 'white',
     },
     Image2: {
       flex: 10,
+      backgroundColor: 'black',
     },
   });
   
