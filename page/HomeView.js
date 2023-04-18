@@ -2,18 +2,28 @@ import { StatusBar } from "expo-status-bar"
 import { useState } from "react"
 import { StyleSheet, Text, TextInput, View, Image } from "react-native"
 import { Button } from 'react-native-paper';
+import { WriteFile } from "./home";
+
+
+
+
 
 const HomeView = ({navigation}) => {
   
     const [enteredTodo, setEnteredTodo] = useState('test')
 
-    const changeTextHandler = (pEnteredTodo) => {
-        setEnteredTodo(pEnteredTodo)
+    const changeTextHandler = (datas) => {
+        setEnteredTodo(datas)
+        {
+        <WriteFile data={datas}/>
+         }
+        }
+    const changeTodoHandler = () => {
+      
+        console.log(enteredTodo)
+        
     }
 
-    const changeTodoHandler = () => {
-        console.log(enteredTodo)
-    }
 
     return (
         <View style={styles.containerFlex}>
