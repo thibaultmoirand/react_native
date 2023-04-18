@@ -20,6 +20,10 @@ const HomeView = ({navigation}) => {
                 <Text>Blue</Text>
             </View>
             <View style={styles.greenFlexItem}>
+              <View style={styles.img}>
+
+              </View>
+              <View style={styles.img}>
                 <Text>{enteredTodo}</Text>
                 <TextInput
                     placeholder='Entrer nouvelle valeur de state'
@@ -28,6 +32,7 @@ const HomeView = ({navigation}) => {
                 <Button
                     onPress={changeTodoHandler}
                     title='Create todo' />
+              </View>
             </View>
             <View style={styles.yellowFlexItem} >
             <Button
@@ -44,28 +49,31 @@ export default HomeView
 
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: 'red',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
     containerFlex: {
-      flex: 1,
+      flex: 100,
     },
     blueFlexItem: {
-      flex: 2,
+      flex: 5,
       backgroundColor: 'blue'
     },
     greenFlexItem: {
-      flex: 5,
+      flex: 80,
       justifyContent: 'center',
       alignItems: 'center'
     },
     yellowFlexItem: {
-      flex: 2,
+      flex: 15,
       justifyContent: 'center',
       alignItems: 'center'
+    },
+    img: {
+      flex: 50,
+    },
+    Image1: {
+      flex: 10,
+    },
+    Image2: {
+      flex: 10,
     },
   });
   
