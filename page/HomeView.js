@@ -3,7 +3,8 @@ import { useState } from "react"
 import { StyleSheet, Text, TextInput, View, Image } from "react-native"
 import { Button } from 'react-native-paper';
 import { WriteFile } from "./home";
-
+import * as FileSystem from 'expo-file-system';
+import { mail } from "./home";
 
 
 
@@ -12,17 +13,19 @@ const HomeView = ({navigation}) => {
   
     const [enteredTodo, setEnteredTodo] = useState('test')
 
-    const changeTextHandler = (datas) => {
-        setEnteredTodo(datas)
-        {
-        <WriteFile data={datas}/>
-         }
+    const changeTextHandler = (data) => {
+        setEnteredTodo(data)
+
         }
-    const changeTodoHandler = () => {
+    const changeTodoHandler = async () => {
       
-        console.log(enteredTodo)
-        
+        // console.log(enteredTodo)
+        await WriteFile (enteredTodo)
+        await mail (FileSystem.documentDirectory + 'file.txt')
     }
+
+
+
 
 
     return (
@@ -55,6 +58,7 @@ const HomeView = ({navigation}) => {
                     >
                       titre
                     </Button>
+                    
               </View>
             </View>
             <View style={styles.menu} >
@@ -63,6 +67,7 @@ const HomeView = ({navigation}) => {
                     onPress={() => {navigation.navigate('Accueil')}}>
                       home
                     </Button>
+                    
                     <Button
                     icon="home" mode="contained"
                     onPress={() => {navigation.navigate('Second')}}>
