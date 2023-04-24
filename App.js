@@ -6,14 +6,14 @@ import SecondView from './page/SecondView';
 // Navigation stack setup
 const Stack = createNativeStackNavigator();
 
-
+// , headerShown: false
 export default function App() {
 
   return (
     <PaperProvider>
     <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name='Accueil' component={HomeView} options={{title: 'Accueil'}} />
+          <Stack.Screen name='Accueil' component={HomeView} options={{title: 'Accueil' , headerShown: false}} />
           <Stack.Screen name='Second' component={SecondView} options={{title: 'Second'}}/>
         </Stack.Navigator>
     </NavigationContainer>

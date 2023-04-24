@@ -10,10 +10,10 @@ import { mail } from "./home";
 
 
 const HomeView = ({navigation}) => {
-  
+
     const [enteredTodo, setEnteredTodo] = useState('test')
 
-    const changeTextHandler = (data) => {
+    const changeTextHandler = async (data) => {
         setEnteredTodo(data)
 
         }
@@ -21,8 +21,12 @@ const HomeView = ({navigation}) => {
       
         // console.log(enteredTodo)
         await WriteFile (enteredTodo)
-        await mail (FileSystem.documentDirectory + 'file.txt')
+
     }
+    const mailr = async () => {
+      
+      await mail (FileSystem.documentDirectory + 'file.txt')
+  }
 
 
 
@@ -36,7 +40,7 @@ const HomeView = ({navigation}) => {
             <View style={styles.greenFlexItem}>
               <View style={styles.img}>
                 
-                <Image style={styles.Image1} src={'./test.png'}></Image>
+                <Image style={styles.Image1} src={'test.png'}></Image>
                 <Image style={styles.Image2} src={''}></Image>
                 
               </View>
@@ -47,7 +51,7 @@ const HomeView = ({navigation}) => {
                 
               </View>
               <View style={styles.bout}>
-                <Text>{enteredTodo}</Text>
+                <Text>text a envoyer par mail</Text>
                 <TextInput
                     placeholder='Entrer nouvelle valeur de state'
                     onChangeText={changeTextHandler}
@@ -57,6 +61,12 @@ const HomeView = ({navigation}) => {
                     onPress={changeTodoHandler}
                     >
                       titre
+                    </Button>
+                    <Button
+                    icon="home" mode="contained"
+                    onPress={mailr}
+                    >
+                      mail
                     </Button>
                     
               </View>
@@ -74,7 +84,7 @@ const HomeView = ({navigation}) => {
                       page 2
               </Button>
             </View>
-
+            
             <StatusBar style="auto" />
         </View>
     )
